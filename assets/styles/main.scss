@@ -1,14 +1,16 @@
 @use 'assets/styles/reset';
 
-/* @font-face {
-    font-family: '';
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    src: url('/assets/fonts/.ttf') format("trueType");
-  } */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/assets/fonts/Inter-Regular.ttf') format("trueType");
+} 
 
   body {
     font-family: $mainFonts;
+    color: $colorMain;
+    font-size: $fontSize *1.2;
   }
 

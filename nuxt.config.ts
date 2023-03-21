@@ -7,10 +7,14 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/_vars.scss" as *; ',
+          additionalData: '@use "@/assets/styles/_vars.scss" as *; ',
         },
       },
     },
   },
-  modules: [['@nuxtjs/robots', { UserAgent: '*' }], '@nuxtjs/device'],
+  modules: [
+    ['@nuxtjs/robots', { UserAgent: '*' }],
+    '@nuxtjs/device',
+    'nuxt-vitest',
+  ],
 })
