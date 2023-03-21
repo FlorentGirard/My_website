@@ -16,5 +16,6 @@ export default defineNuxtConfig({
     ['@nuxtjs/robots', { UserAgent: '*' }],
     '@nuxtjs/device',
     'nuxt-vitest',
+    'nuxt-swiper',
   ],
 })

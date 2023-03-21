@@ -1,11 +1,12 @@
 <template>
   <div class="spa">
     <Banner :text-array="spaData.textArray" />
-    <h1 class="spa__title">Développeur front end*</h1>
+    <h1 class="spa__title">Développeur full-stack*</h1>
     <p class="spa__presentation">
       *Je conçois et développe vos projets web, <br />
       site internet et application.
     </p>
+    <Carousel />
   </div>
 </template>
 <script lang="ts" setup>
