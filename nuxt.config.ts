@@ -2,7 +2,11 @@
 
 export default defineNuxtConfig({
   css: ['@/assets/styles/main.scss'],
-  runtimeConfig: {},
+  runtimeConfig: {
+    public: {
+      email: 'hi@visualclub-studio.com ',
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
