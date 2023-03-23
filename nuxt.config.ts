@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       email: 'hi@visualclub-studio.com ',
+      tel: '+33638520096',
     },
   },
   vite: {

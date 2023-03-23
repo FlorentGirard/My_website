@@ -21,6 +21,8 @@
       >
     </section>
     <Banner :text-array="spaData.textArray" />
+    <Contact />
+    <Footer />
   </div>
 </template>
 <script lang="ts" setup>
