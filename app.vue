@@ -1,27 +1,46 @@
 <template>
   <div class="spa">
-    <Banner :text-array="spaData.textArray" />
-    <h1 class="spa__title">Développeur full-stack*</h1>
-    <p class="spa__presentation">
-      *Je conçois et développe vos projets web, <br />
-      site internet et application.
-    </p>
-    <Carousel />
-    <Card
-      title="Conception"
-      paragraph="lorem fffffffffffffffffffffffffffffffffffffffffff"
-    />
-    <Card
-      title="développement"
-      paragraph="lorem fffffffffffffffffffffffffffffffffffffffffff"
-    />
-    <section class="spa__hero">
-      <a :href="`mailto:${config.public.email}`" class="theFooter__email">
-        {{ config.public.email }} ↗</a
-      >
-    </section>
-    <Banner :text-array="spaData.textArray" />
-    <Contact />
+    <Banner :is-big-caroussel="false" :text-array="spaData.textArray" />
+    <div class="spa__content">
+      <section class="spa__sectionLeft">
+        <div class="spa__firstView">
+          <h1 class="spa__title">Développeur full-stack*</h1>
+          <div class="test">
+            <p class="spa__presentation">
+              *Je conçois et développe vos projets web,
+              <span class="spa__presentation--block"
+                >site internet et application.</span
+              >
+            </p>
+          </div>
+          <Banner
+            :is-big-caroussel="false"
+            :text-array="spaData.textArray"
+            class="spa__bannerBorder"
+          />
+        </div>
+        <Banner :is-big-caroussel="true" :text-array="spaData.text" />
+      </section>
+
+      <section class="spa__sectionRight">
+        <Carousel class="spa__caroussel" />
+        <Card
+          title="Conception"
+          paragraph="lorem fffffffffffffffffffffffffffffffffffffffffff"
+        />
+        <Card
+          title="développement"
+          paragraph="lorem fffffffffffffffffffffffffffffffffffffffffff"
+        />
+        <section class="spa__hero">
+          <a :href="`mailto:${config.public.email}`" class="theFooter__email">
+            {{ config.public.email }} ↗</a
+          >
+        </section>
+
+        <Contact />
+      </section>
+    </div>
     <Footer />
   </div>
 </template>
@@ -33,6 +52,11 @@ const spaData = reactive({
     'disponible pour de nouveaux projets!',
     'disponible pour de nouveaux projets!',
     'disponible pour de nouveaux projets!',
+  ],
+  text: [
+    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
+    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
+    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
   ],
 })
 </script>
@@ -48,6 +72,10 @@ const spaData = reactive({
 .spa__presentation {
   text-align: center;
   line-height: 14.52px;
+
+  &--block {
+    display: block;
+  }
 }
 
 .spa__hero {
@@ -58,5 +86,67 @@ const spaData = reactive({
   justify-content: center;
   align-items: center;
   font-size: $fontSize * 1.5;
+}
+
+@media screen and (min-width: 1024px) {
+  .spa__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .spa__sectionRight {
+    width: 501px;
+    max-width: 501px;
+    border-left: 1px solid $colorMain;
+    flex: none;
+  }
+
+  .spa__sectionLeft {
+    width: calc(100% - 502px);
+    position: relative;
+  }
+
+  .spa__firstView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 31px);
+  }
+  .spa__title {
+    font-size: $fontSize * 9;
+    padding-left: $gutter * 5;
+    display: block;
+    padding-bottom: $gutter * 5;
+    border-bottom: 1px solid $colorMain;
+  }
+
+  .test {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spa__presentation {
+    font-size: $fontSize * 2;
+    // position: absolute;
+    //left: 50%;
+    //transform: translateX(-50%);
+
+    &--block {
+      display: inline-block;
+    }
+  }
+
+  .spa__hero {
+    display: none;
+  }
+
+  .spa__section {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    //float: right;
+  }
 }
 </style>

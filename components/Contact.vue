@@ -10,8 +10,14 @@
       <li class="contact__list">
         <a :href="`tel:${config.public.tel}`"> {{ config.public.tel }}↗</a>
       </li>
-      <li class="contact__list"><a href="#">LinkedIn ↗</a></li>
-      <li class="contact__list"><a href="#">Malt ↗</a></li>
+      <li class="contact__list">
+        <a href="https://www.linkedin.com/in/florentgirard-/">LinkedIn ↗</a>
+      </li>
+      <li class="contact__list">
+        <a href="https://www.malt.fr/profile/florentgirard?overview=true"
+          >Malt ↗</a
+        >
+      </li>
     </ul>
     <h2 class="contact__title">Lieu d’activité</h2>
     <p class="contact__text">

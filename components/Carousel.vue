@@ -87,4 +87,12 @@ const carouselData = reactive({
 .swiper-pagination {
   text-align: right;
 }
+
+@media screen and (min-width: 124px) {
+  .carousel {
+    margin-top: 0;
+    border-top: none;
+    height: calc(100vh - 32px);
+  }
+}
 </style>
