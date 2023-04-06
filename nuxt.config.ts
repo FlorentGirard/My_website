@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   modules: [
     ['@nuxtjs/robots', { UserAgent: '*' }],
     '@nuxtjs/device',
+    '@formkit/nuxt',
     'nuxt-vitest',
     'nuxt-swiper',
   ],

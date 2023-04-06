@@ -19,7 +19,11 @@
             class="spa__bannerBorder"
           />
         </div>
-        <Banner :is-big-caroussel="true" :text-array="spaData.text" />
+        <Banner
+          :is-big-caroussel="true"
+          :text-array="spaData.text"
+          class="spa__bannerHideMobil"
+        />
       </section>
 
       <section class="spa__sectionRight">
@@ -37,6 +41,7 @@
             {{ config.public.email }} ↗</a
           >
         </section>
+        <Form />
 
         <Contact />
       </section>
@@ -78,6 +83,11 @@ const spaData = reactive({
   }
 }
 
+.spa__bannerBorder,
+.spa__bannerHideMobil {
+  display: none;
+}
+
 .spa__hero {
   background-color: $colorMain;
   color: $colorLight;
@@ -89,6 +99,9 @@ const spaData = reactive({
 }
 
 @media screen and (min-width: 1024px) {
+  spa__bannerBorder {
+    display: block;
+  }
   .spa__content {
     display: flex;
     justify-content: space-between;

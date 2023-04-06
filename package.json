@@ -27,6 +27,7 @@
     "vitest": "^0.29.7"
   },
   "dependencies": {
+    "@formkit/nuxt": "^0.16.4",
     "@nuxtjs/robots": "^3.0.0",
     "nuxt-swiper": "^1.0.1"
   }
