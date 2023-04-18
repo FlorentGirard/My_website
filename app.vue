@@ -5,14 +5,14 @@
       <section class="spa__sectionLeft">
         <div class="spa__firstView">
           <h1 class="spa__title">Développeur full-stack*</h1>
-          <div class="test">
-            <p class="spa__presentation">
-              *Je conçois et développe vos projets web,
-              <span class="spa__presentation--block"
-                >site internet et application.</span
-              >
-            </p>
-          </div>
+
+          <p class="spa__presentation">
+            *Je conçois et développe vos projets web,
+            <span class="spa__presentation--block"
+              >site internet et application.</span
+            >
+          </p>
+
           <Banner
             :is-big-caroussel="false"
             :text-array="spaData.textArray"
@@ -77,6 +77,8 @@ const spaData = reactive({
 .spa__presentation {
   text-align: center;
   line-height: 14.52px;
+  border-bottom: 1px solid $colorMain;
+  padding-bottom: $gutter * 3;
 
   &--block {
     display: block;
@@ -99,7 +101,7 @@ const spaData = reactive({
 }
 
 @media screen and (min-width: 1024px) {
-  spa__bannerBorder {
+  .spa__bannerBorder {
     display: block;
   }
   .spa__content {
@@ -131,13 +133,6 @@ const spaData = reactive({
     display: block;
     padding-bottom: $gutter * 5;
     border-bottom: 1px solid $colorMain;
-  }
-
-  .test {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .spa__presentation {
