@@ -3,7 +3,6 @@
     <FormKit
       id="myForm"
       type="form"
-      class="test1"
       submit-label="Register"
       :actions="false"
       @submit="sendEmail"
@@ -11,69 +10,76 @@
       <FormKit
         type="textarea"
         name="message"
-        placeholder="Description de votre projet..."
         rows="10"
+        placeholder="Description de votre projet..."
         :classes="{
           input: 'input--text',
-          inner: 'input__inner',
+          outer: 'input__outer--text',
+          inner: 'input__inner input__inner--textArea',
         }"
       />
-      <FormKit
-        type="text"
-        name="name"
-        placeholder="Votre Nom et prenom...."
-        validation="required|length:3"
-        validation-visibility="blur"
-        :validation-messages="{
-          length: 'Votre nom et prenom doit contenir au minimum 3 caractéres',
-          required: 'Le nom est un champs obligatoire! Veuillez le renseigner.',
-        }"
-        :classes="{
-          input: 'input',
-          inner: 'input__inner',
-          message: 'message-error',
-        }"
-      />
-      <FormKit
-        type="email"
-        name="email"
-        validation="required|email"
-        validation-visibility="blur"
-        :validation-messages="{
-          email: 'Veuillez respecter le format email: john@gmail.com',
-          required:
-            'L\'email est un champs obligatoire! Veuillez le renseigner.',
-        }"
-        placeholder="Votre email.."
-        :classes="{
-          input: 'input',
-          message: 'message-error',
-          inner: 'input__inner',
-        }"
-      />
-      <FormKit
-        type="tel"
-        name="tel"
-        validation="required"
-        validation-visibility="blur"
-        :validation-messages="{
-          required:
-            'Le telephone est un champs obligatoire! Veuillez le renseigner.',
-        }"
-        placeholder="Votre telephone..."
-        :classes="{
-          input: 'input',
-          inner: 'input__inner',
-          message: 'message-error',
-        }"
-      />
-      <FormKit
-        type="submit"
-        label="Envoyer"
-        :classes="{
-          input: 'buttonForm',
-        }"
-      />
+      <div class="form__blockRight">
+        <FormKit
+          type="text"
+          name="name"
+          placeholder="Votre Nom et prenom...."
+          validation="required|length:3"
+          validation-visibility="blur"
+          :validation-messages="{
+            length: 'Ce champ doit contenir au minimum 3 caractéres',
+            required: 'Ce champ est obligatoire! Veuillez le renseigner.',
+          }"
+          :classes="{
+            input: 'input',
+            outer: 'input__outer',
+            inner: 'input__inner',
+            message: 'message-error',
+          }"
+        />
+        <FormKit
+          type="email"
+          name="email"
+          validation="required|email"
+          validation-visibility="blur"
+          :validation-messages="{
+            email: 'Veuillez respecter le format email: john@gmail.com',
+            required: 'Ce champ est obligatoire! Veuillez le renseigner.',
+          }"
+          placeholder="Votre email..."
+          :classes="{
+            outer: 'input__outer',
+            input: 'input',
+            message: 'message-error',
+            inner: 'input__inner',
+          }"
+        />
+        <div class="form__flex">
+          <FormKit
+            type="tel"
+            name="tel"
+            validation="required"
+            validation-visibility="blur"
+            :validation-messages="{
+              required: 'Ce champ est obligatoire! ',
+            }"
+            placeholder="Votre telephone..."
+            :classes="{
+              input: 'input input--tel',
+              inner: 'input__inner',
+              message: 'message-error',
+              outer: ' input__outer input__outer--tel',
+            }"
+          />
+          <FormKit
+            type="submit"
+            label="Envoyer"
+            :classes="{
+              input: 'buttonForm',
+              outer: 'buttonForm__outer',
+            }"
+          />
+        </div>
+      </div>
     </FormKit>
   </div>
 </template>
@@ -89,19 +95,17 @@ const sendEmail = (value) => {
 
 <style lang="scss">
 .input {
-  vertical-align: middle;
   height: 70px;
   width: calc(100% - 34px);
   border: none;
   font-size: $fontSize * 1.5;
   color: $colorMain;
   padding-left: $gutter * 3;
+  border-top: 1px solid rgba($colorMain, 1);
 
   &:focus {
     outline: none;
-    /*    border-top: 2px solid $colorMain;
-    border-bottom: 1px solid $colorMain;
-    box-shadow: none; */
+    box-shadow: none;
   }
 
   &--text {
@@ -112,28 +116,9 @@ const sendEmail = (value) => {
   }
 
   &::placeholder {
-    color: $colorMain;
+    color: rgba($colorMain, 0.5);
   }
 }
-
-.input__inner {
-  border-top: 1px solid rgba($colorMain, 1);
-}
-
-[data-invalid] .input__inner {
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
-  color: red;
-}
-
-/* [data-invalid] .formkit-inner {
-  border: none;
-  border-color: red !important;
-  border-bottom: 1px solid red;
-  border-top: 2px solid red !important;
-
-  //box-shadow: 0 0 0 1px red;
-} */
 
 .message-error {
   font-size: 12px;
@@ -152,12 +137,80 @@ const sendEmail = (value) => {
   }
 }
 
+.buttonForm__outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .buttonForm {
   font-size: $fontSize * 1.5;
-  width: 100%;
-  text-align: center;
+  //width: 100%;
   height: 70px;
-  border-top: 1px solid $colorMain;
-  border-bottom: 1px solid $colorMain;
+  //border-top: 1px solid $colorMain;
+  //border-bottom: 1px solid $colorMain;
+  //display: block;
+  //background: red;
+}
+
+@media screen and (min-width: 1024px) {
+  .formkit-form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form__blockRight {
+    width: 35%;
+    //height: auto;
+  }
+
+  .input {
+    height: 98px;
+
+    &--tel {
+      border-top: none;
+    }
+
+    &--text {
+      min-height: calc(300px - 30px);
+    }
+  }
+
+  .input__outer {
+    max-height: 100px;
+
+    &--text {
+      width: 65%;
+    }
+  }
+
+  .form__flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .input__inner--textArea {
+    border: 1px solid $colorMain;
+    min-height: auto;
+    height: 100%;
+  }
+
+  .message-error {
+    transform: translateY(-20px);
+    padding: 0;
+    padding-left: $gutter * 3;
+  }
+
+  .buttonForm__outer,
+  .input__outer--tel {
+    width: 50%;
+    border-bottom: 1px solid $colorMain;
+    border-top: 1px solid $colorMain;
+  }
+
+  .buttonForm__outer {
+    border-left: 1px solid $colorMain;
+  }
 }
 </style>

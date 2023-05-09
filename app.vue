@@ -41,7 +41,7 @@
             {{ config.public.email }} ↗</a
           >
         </section>
-        <Form />
+        <Form class="spa__form" />
 
         <Contact />
       </section>
@@ -66,6 +66,10 @@ const spaData = reactive({
 })
 </script>
 <style lang="scss" scoped>
+.spa__bannerBorder,
+.spa__bannerHideMobil {
+  display: none;
+}
 .spa__title {
   font-size: $fontSize * 2.5;
   text-transform: uppercase;
@@ -85,11 +89,6 @@ const spaData = reactive({
   }
 }
 
-.spa__bannerBorder,
-.spa__bannerHideMobil {
-  display: none;
-}
-
 .spa__hero {
   background-color: $colorMain;
   color: $colorLight;
@@ -101,8 +100,13 @@ const spaData = reactive({
 }
 
 @media screen and (min-width: 1024px) {
+  .spa__bannerBorder,
+  .spa__bannerHideMobil {
+    display: flex;
+  }
+
   .spa__bannerBorder {
-    display: block;
+    border-top: 1px solid $colorMain;
   }
   .spa__content {
     display: flex;
@@ -110,14 +114,15 @@ const spaData = reactive({
   }
 
   .spa__sectionRight {
-    width: 501px;
-    max-width: 501px;
+    width: 25%;
+    box-sizing: border-box;
+    // max-width: 500px;
     border-left: 1px solid $colorMain;
     flex: none;
   }
 
   .spa__sectionLeft {
-    width: calc(100% - 502px);
+    width: 75%;
     position: relative;
   }
 
@@ -137,9 +142,7 @@ const spaData = reactive({
 
   .spa__presentation {
     font-size: $fontSize * 2;
-    // position: absolute;
-    //left: 50%;
-    //transform: translateX(-50%);
+    border-bottom: none;
 
     &--block {
       display: inline-block;
@@ -150,11 +153,19 @@ const spaData = reactive({
     display: none;
   }
 
+  .spa__form {
+    position: absolute;
+    left: 0;
+    right: calc(25% - 2px);
+    //right: calc(25% + 1px);
+    top: calc(100% + 201px);
+  }
+  /*
   .spa__section {
     position: absolute;
     right: 0;
     z-index: 1;
     //float: right;
-  }
+  } */
 }
 </style>

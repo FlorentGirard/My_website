@@ -7,17 +7,17 @@
           {{ config.public.email }} ↗</a
         >
       </li>
-      <li class="contact__list">
+      <li class="contact__list contact__list--tel">
         <a :href="`tel:${config.public.tel}`"> {{ config.public.tel }}↗</a>
       </li>
       <li class="contact__list">
         <a href="https://www.linkedin.com/in/florentgirard-/">LinkedIn ↗</a>
       </li>
-      <li class="contact__list">
+      <!--   <li class="contact__list">
         <a href="https://www.malt.fr/profile/florentgirard?overview=true"
           >Malt ↗</a
         >
-      </li>
+      </li> -->
     </ul>
     <h2 class="contact__title">Lieu d’activité</h2>
     <p class="contact__text">
@@ -28,10 +28,16 @@
       HTML - CSS - SCSS - javascript - TypeScript - VUEJS/NUXTJS - NESTJS -
       ReactJs
     </p>
-    <h2 class="contact__title">Gestion de projets</h2>
-    <p class="contact__text contact__text--uppercase">Github - GitLab</p>
-    <h2 class="contact__title">DevOps</h2>
-    <p class="contact__text">Méthodologie Agile(SCRUM) - GitFlow - BEM - TDD</p>
+    <div class="contact__flex">
+      <h2 class="contact__title">Gestion de projets/ DevOps</h2>
+      <p class="contact__text contact__text--uppercase">
+        Github - GitLab - Agile(SCRUM) - GitFlow - BEM - TDD
+      </p>
+      <!--   <h2 class="contact__title">DevOps</h2>
+      <p class="contact__text">
+        Méthodologie Agile(SCRUM) - GitFlow - BEM - TDD
+      </p> -->
+    </div>
     <h2 class="contact__title">Partenaire pour la conception graphique</h2>
     <a href="https://www.visualclub-studio.com/">Visual Club ↗</a>
   </section>
@@ -61,6 +67,17 @@ const config = useRuntimeConfig()
 
   &--uppercase {
     text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact {
+    margin-bottom: $gutter * 3;
+  }
+
+  .contact__list--tel {
+    float: right;
+    transform: translateY(-30px);
   }
 }
 </style>

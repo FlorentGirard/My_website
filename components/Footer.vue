@@ -28,4 +28,11 @@ const footerData = reactive({
 .footer__copyright {
   text-transform: uppercase;
 }
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    margin: 0;
+    padding: 0 $gutter * 3;
+  }
+}
 </style>
